@@ -17,7 +17,18 @@ Before installing, ensure you have:
 
 Choose the method that fits your situation:
 
-### Method 1: New Project from Template
+### Method 1: Install via spec-kit CLI (Recommended)
+
+**Use this if:** You have spec-kit v0.0.18+ installed and want the simplest setup
+
+```bash
+# Install the latest release
+specify ext install https://github.com/gimmebytes/spec-kit-extensions/releases/latest/download/workflow-extensions.zip
+```
+
+> **Tip:** Check the [Releases page](https://github.com/gimmebytes/spec-kit-extensions/releases) for the latest version and download URL.
+
+### Method 2: New Project from Template
 
 **Use this if:** Starting a new project and want everything pre-configured
 
@@ -47,7 +58,7 @@ rmdir extensions scripts commands
 /bugfix --help
 ```
 
-### Method 2: Add to Existing spec-kit Project
+### Method 3: Add to Existing spec-kit Project
 
 **Use this if:** You already have a spec-kit project and want to add extensions
 
@@ -81,7 +92,7 @@ rm -rf /tmp/spec-kit-extensions
 /bugfix --help
 ```
 
-### Method 3: Git Submodule (For Teams)
+### Method 4: Git Submodule (For Teams)
 
 **Use this if:** You want to track updates to extensions or share across multiple projects
 
@@ -109,13 +120,13 @@ git submodule update --init --recursive
 git submodule update --remote .specify/extension-source
 ```
 
-### Method 4: Manual Installation (Without Git)
+### Method 5: Manual Installation (Without Git)
 
 **Use this if:** You want to manually download and install
 
 1. Download the [latest release](https://github.com/[your-username]/spec-kit-extensions/releases) as ZIP
 2. Extract to temporary directory
-3. Follow steps from **Method 2** starting at step 2
+3. Follow steps from **Method 3** starting at step 2
 
 ## Verification
 
@@ -273,7 +284,7 @@ Each AI agent requires different setup. See **[AI-AGENTS.md](AI-AGENTS.md)** for
 
 ## Updating Extensions
 
-### Update from Git (Method 2)
+### Update from Git (Method 3)
 
 ```bash
 # Pull latest version
@@ -295,7 +306,7 @@ cp /tmp/enabled.conf.backup .specify/extensions/enabled.conf
 rm -rf /tmp/spec-kit-extensions
 ```
 
-### Update from Submodule (Method 3)
+### Update from Submodule (Method 4)
 
 ```bash
 git submodule update --remote .specify/extension-source

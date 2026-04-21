@@ -76,7 +76,14 @@ See [EXAMPLES.md](EXAMPLES.md) for detailed real-world examples.
 
 ### Installation
 
-**Option 1: Use as Template (New Projects)**
+**Option 1: Install via spec-kit CLI (Recommended)**
+```bash
+specify ext install https://github.com/gimmebytes/spec-kit-extensions/releases/latest/download/workflow-extensions.zip
+```
+
+> Check the [Releases page](https://github.com/gimmebytes/spec-kit-extensions/releases) for the latest version and download URL.
+
+**Option 2: Use as Template (New Projects)**
 ```bash
 # Create new project from this template
 git clone https://github.com/[your-username]/spec-kit-extensions.git my-project
@@ -86,7 +93,7 @@ git init
 # Rearrange files per INSTALLATION.md
 ```
 
-**Option 2: Copy into Existing Project**
+**Option 3: Copy into Existing Project**
 ```bash
 # Clone this repo
 git clone https://github.com/[your-username]/spec-kit-extensions.git /tmp/extensions
@@ -104,7 +111,7 @@ cat /tmp/extensions/docs/constitution-template.md >> .specify/memory/constitutio
 rm -rf /tmp/extensions
 ```
 
-**Option 3: Git Submodule (Team Projects)**
+**Option 4: Git Submodule (Team Projects)**
 ```bash
 cd your-project
 git submodule add https://github.com/[your-username]/spec-kit-extensions.git .specify/extensions-source

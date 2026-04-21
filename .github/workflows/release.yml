@@ -1,0 +1,53 @@
+name: Release Extension
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Read extension version
+        id: ext_version
+        run: |
+          version=$(grep -m1 '^ *version:' extension.yml | sed 's/.*version: *"\?\([^"]*\)"\?/\1/')
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Build extension zip
+        run: |
+          # Convert .extensionignore patterns to rsync exclude format and
+          # copy only the files that belong in the extension package.
+          STAGING_DIR=$(mktemp -d)
+
+          # Build rsync exclude list from .extensionignore
+          EXCLUDES=()
+          while IFS= read -r line; do
+            # Skip blank lines and comments
+            [[ -z "$line" || "$line" =~ ^# ]] && continue
+            EXCLUDES+=(--exclude "$line")
+          done < .extensionignore
+
+          # Always exclude the .extensionignore itself and .git
+          EXCLUDES+=(--exclude ".extensionignore" --exclude ".git/")
+
+          rsync -a "${EXCLUDES[@]}" ./ "$STAGING_DIR/"
+
+          # Create the zip from the staging directory
+          # Use a stable filename so /releases/latest/download/ URLs stay valid across versions
+          cd "$STAGING_DIR"
+          zip -r "$GITHUB_WORKSPACE/workflow-extensions.zip" .
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "Workflow Extensions v${{ steps.ext_version.outputs.version }}"
+          generate_release_notes: true
+          files: workflow-extensions.zip
