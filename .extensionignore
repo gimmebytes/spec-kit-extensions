@@ -1,0 +1,47 @@
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git and GitHub
+.git/
+.github/
+.gitignore
+
+# Development and contribution docs
+CONTRIBUTING.md
+CHANGELOG.md
+AI-AGENTS.md
+EXAMPLES.md
+INSTALLATION.md
+
+# Documentation source
+docs/architecture.md
+docs/constitution-template.md
+
+# Test artifacts
+test-results/
+.test-project/
+
+# Build artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+dist/
+build/
+*.egg-info/
+node_modules/
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+*.backup
