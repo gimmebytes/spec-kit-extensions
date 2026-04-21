@@ -23,7 +23,7 @@ Choose the method that fits your situation:
 
 ```bash
 # Install the latest release
-specify ext install https://github.com/gimmebytes/spec-kit-extensions/releases/latest/download/workflow-extensions-1.0.0.zip
+specify ext install https://github.com/gimmebytes/spec-kit-extensions/releases/latest/download/workflow-extensions.zip
 ```
 
 > **Tip:** Check the [Releases page](https://github.com/gimmebytes/spec-kit-extensions/releases) for the latest version and download URL.

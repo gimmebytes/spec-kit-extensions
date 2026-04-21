@@ -78,7 +78,7 @@ See [EXAMPLES.md](EXAMPLES.md) for detailed real-world examples.
 
 **Option 1: Install via spec-kit CLI (Recommended)**
 ```bash
-specify ext install https://github.com/gimmebytes/spec-kit-extensions/releases/latest/download/workflow-extensions-1.0.0.zip
+specify ext install https://github.com/gimmebytes/spec-kit-extensions/releases/latest/download/workflow-extensions.zip
 ```
 
 > Check the [Releases page](https://github.com/gimmebytes/spec-kit-extensions/releases) for the latest version and download URL.
