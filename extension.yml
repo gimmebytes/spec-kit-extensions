@@ -1,0 +1,51 @@
+schema_version: "1.0"
+
+extension:
+  id: "workflow-extensions"
+  name: "Workflow Extensions"
+  version: "1.0.0"
+  description: "5 production-tested workflows extending spec-kit to cover bugfix, modify, refactor, hotfix, and deprecate development activities"
+  author: "gimmebytes"
+  repository: "https://github.com/gimmebytes/spec-kit-extensions"
+  license: "MIT"
+
+requires:
+  speckit_version: ">=0.0.18"
+  tools: []
+
+provides:
+  commands:
+    - name: "speckit.bugfix"
+      file: "commands/speckit.bugfix.md"
+      description: "Create a bug fix workflow with regression test and minimal documentation"
+
+    - name: "speckit.modify"
+      file: "commands/speckit.modify.md"
+      description: "Modify an existing feature with impact analysis and backward compatibility tracking"
+
+    - name: "speckit.refactor"
+      file: "commands/speckit.refactor.md"
+      description: "Create a refactoring workflow with metrics tracking and behavior preservation validation"
+
+    - name: "speckit.hotfix"
+      file: "commands/speckit.hotfix.md"
+      description: "Create an emergency hotfix workflow with expedited process and mandatory post-mortem"
+
+    - name: "speckit.deprecate"
+      file: "commands/speckit.deprecate.md"
+      description: "Initiate a feature deprecation workflow with phased sunset process"
+
+  config:
+    - name: "enabled.conf"
+      template: "extensions/enabled.conf"
+      description: "Enable or disable individual workflow extensions"
+      required: false
+
+tags:
+  - "workflows"
+  - "bugfix"
+  - "modify"
+  - "refactor"
+  - "hotfix"
+  - "deprecate"
+  - "lifecycle"
