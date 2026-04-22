@@ -136,11 +136,11 @@ After installation, verify everything works:
 
 ```bash
 # Test each command (should show usage)
-/speckit.bugfix --help
-/speckit.modify --help
-/speckit.refactor --help
-/speckit.hotfix --help
-/speckit.deprecate --help
+/speckit.workflows.bugfix --help
+/speckit.workflows.modify --help
+/speckit.workflows.refactor --help
+/speckit.workflows.hotfix --help
+/speckit.workflows.deprecate --help
 ```
 
 ### Test Bash Scripts

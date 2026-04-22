@@ -6,7 +6,7 @@ The refactor workflow is for improving code quality without changing behavior. I
 
 ## When to Use
 
-Use `/speckit.refactor` when:
+Use `/speckit.workflows.refactor` when:
 
 - Code works but is hard to understand/maintain
 - Identifying code smells (duplication, complexity, coupling)
@@ -15,9 +15,9 @@ Use `/speckit.refactor` when:
 - Extracting reusable components
 - Reducing technical debt
 
-**Do NOT use `/speckit.refactor` for**:
-- Changing behavior intentionally → use `/speckit.modify` instead
-- Fixing bugs → use `/speckit.bugfix` instead
+**Do NOT use `/speckit.workflows.refactor` for**:
+- Changing behavior intentionally → use `/speckit.workflows.modify` instead
+- Fixing bugs → use `/speckit.workflows.bugfix` instead
 - Adding features → use `/speckit.specify` instead
 - Improving code as part of feature work → include in feature tasks
 
@@ -80,9 +80,9 @@ This ensures you always have a working state to return to.
 ```
 specs/
 └── refactor-001-extract-tweet-service/
-    ├── refactor-spec.md          # Refactoring goals (created by /speckit.refactor)
-    ├── behavioral-snapshot.md    # Behavior documentation (created by /speckit.refactor)
-    ├── metrics-before.md         # Baseline metrics (created by /speckit.refactor)
+    ├── refactor-spec.md          # Refactoring goals (created by /speckit.workflows.refactor)
+    ├── behavioral-snapshot.md    # Behavior documentation (created by /speckit.workflows.refactor)
+    ├── metrics-before.md         # Baseline metrics (created by /speckit.workflows.refactor)
     ├── metrics-after.md          # Post-refactor metrics (placeholder)
     ├── plan.md                   # Refactoring plan (created by /speckit.plan)
     └── tasks.md                  # Incremental tasks (created by /speckit.tasks)
@@ -91,7 +91,7 @@ specs/
 ## Command Usage
 
 ```bash
-/speckit.refactor "extract tweet submission logic into reusable service"
+/speckit.workflows.refactor "extract tweet submission logic into reusable service"
 ```
 
 This will:
@@ -234,7 +234,7 @@ The `measure-metrics.sh` script captures:
 The refactor workflow uses checkpoints with metrics to ensure code quality improves without breaking behavior:
 
 ### Phase 1: Baseline Capture
-- **Command**: `/speckit.refactor "description"`
+- **Command**: `/speckit.workflows.refactor "description"`
 - **Creates**: `refactor-spec.md`, `behavioral-snapshot.md`, `metrics-before.md`
 - **Checkpoint**: Capture baseline metrics before ANY changes. Document behaviors to preserve.
 
