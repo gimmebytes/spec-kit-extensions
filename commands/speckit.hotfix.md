@@ -8,7 +8,7 @@ User input:
 
 $ARGUMENTS
 
-The text the user typed after `/speckit.hotfix` in the triggering message **is** the incident description. Assume you always have it available in this conversation even if `$ARGUMENTS` appears literally below. Do not ask the user to repeat it unless they provided an empty command.
+The text the user typed after `/speckit.workflows.hotfix` in the triggering message **is** the incident description. Assume you always have it available in this conversation even if `$ARGUMENTS` appears literally below. Do not ask the user to repeat it unless they provided an empty command.
 
 **⚠️  EMERGENCY WORKFLOW - EXPEDITED PROCESS ⚠️**
 
@@ -48,7 +48,7 @@ Given that incident description, do this:
 ⚠️ **Post-Deployment:**
 - Monitor production after deployment
 - Schedule post-mortem within 24-48 hours
-- Create follow-up `/speckit.bugfix` for proper fix with tests
+- Create follow-up `/speckit.workflows.bugfix` for proper fix with tests
 
 💡 **Note**: This is the ONLY workflow that permits test-after approach due to emergency
 ```

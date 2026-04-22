@@ -1,19 +1,7 @@
 # spec-kit Extensions
 
-> [!IMPORTANT]
-> **🚀 Claude Code users: Check out [SpecSwarm](https://github.com/MartyBonacci/specswarm)**
->
-> This repository provides AI-agent-agnostic workflows that work with **multiple AI coding tools** (Claude Code, GitHub Copilot, Cursor, Windsurf, etc.).
->
-> However, if you're specifically using **Claude Code**, we've created **[SpecSwarm](https://github.com/MartyBonacci/specswarm)** - a dedicated Claude Code plugin that includes:
-> - All 5 workflows from this repo (bugfix, modify, refactor, hotfix, deprecate)
-> - Native Claude Code plugin architecture for seamless integration
-> - Optimized templates leveraging Claude Code's specific capabilities
-> - **Active development and our primary focus going forward**
->
-> **👉 Claude Code users: Visit [github.com/MartyBonacci/specswarm](https://github.com/MartyBonacci/specswarm) for the best experience**
->
-> **Using other AI tools?** Continue with this repository - it's designed to work universally across AI coding assistants. Note that our development focus is shifting to SpecSwarm for Claude Code.
+> [!NOTE]
+> **Claude Code users:** Check out [SpecSwarm](https://github.com/MartyBonacci/specswarm) — a dedicated Claude Code plugin with native integration and optimized templates. This repo works universally with all AI coding tools.
 
 **5 production-tested workflows that extend [spec-kit](https://github.com/github/spec-kit) to cover the complete software development lifecycle.**
 
@@ -23,11 +11,11 @@
 
 **spec-kit** provides excellent structured workflows for feature development (`/speckit.specify → /speckit.plan → /speckit.tasks → /speckit.implement`). These extensions add 5 additional workflows for the remaining ~75% of software development work:
 
-- **`/speckit.bugfix`** - Fix bugs with regression-test-first approach
-- **`/speckit.modify`** - Modify existing features with automatic impact analysis
-- **`/speckit.refactor`** - Improve code quality with metrics tracking
-- **`/speckit.hotfix`** - Handle production emergencies with expedited process
-- **`/speckit.deprecate`** - Sunset features with phased 3-step rollout
+- **`/speckit.workflows.bugfix`** - Fix bugs with regression-test-first approach
+- **`/speckit.workflows.modify`** - Modify existing features with automatic impact analysis
+- **`/speckit.workflows.refactor`** - Improve code quality with metrics tracking
+- **`/speckit.workflows.hotfix`** - Handle production emergencies with expedited process
+- **`/speckit.workflows.deprecate`** - Sunset features with phased 3-step rollout
 
 ## Why Use These Extensions?
 
@@ -48,11 +36,11 @@ These extensions bring spec-kit's structured approach to all development activit
 | Activity | Without Extensions | With Extensions |
 |----------|-------------------|-----------------|
 | **New Feature** | ✅ `/speckit.specify` workflow | ✅ Same |
-| **Bug Fix** | ❌ Ad-hoc | ✅ `/speckit.bugfix` with regression tests |
-| **Modify Feature** | ❌ Ad-hoc | ✅ `/speckit.modify` with impact analysis |
-| **Refactor Code** | ❌ Ad-hoc | ✅ `/speckit.refactor` with metrics |
-| **Production Fire** | ❌ Panic | ✅ `/speckit.hotfix` with post-mortem |
-| **Remove Feature** | ❌ Hope | ✅ `/speckit.deprecate` with 3-phase sunset |
+| **Bug Fix** | ❌ Ad-hoc | ✅ `/speckit.workflows.bugfix` with regression tests |
+| **Modify Feature** | ❌ Ad-hoc | ✅ `/speckit.workflows.modify` with impact analysis |
+| **Refactor Code** | ❌ Ad-hoc | ✅ `/speckit.workflows.refactor` with metrics |
+| **Production Fire** | ❌ Panic | ✅ `/speckit.workflows.hotfix` with post-mortem |
+| **Remove Feature** | ❌ Hope | ✅ `/speckit.workflows.deprecate` with 3-phase sunset |
 
 ## Real-World Validation
 
@@ -84,10 +72,10 @@ specify extension add workflows --from https://github.com/gimmebytes/spec-kit-ex
 
 ```bash
 # In your project, try:
-/speckit.bugfix --help
+/speckit.workflows.bugfix --help
 
 # Should see:
-# Usage: /speckit.bugfix "bug description"
+# Usage: /speckit.workflows.bugfix "bug description"
 # Creates a bugfix workflow with regression-test-first approach
 ```
 
@@ -103,25 +91,25 @@ Building something new?
 
 Fixing broken behavior?
 ├─ Production emergency?
-│  └─ Use `/speckit.hotfix "incident description"`
+│  └─ Use `/speckit.workflows.hotfix "incident description"`
 └─ Non-urgent bug?
-   └─ Use `/speckit.bugfix "bug description"`
+   └─ Use `/speckit.workflows.bugfix "bug description"`
 
 Changing existing feature?
 ├─ Adding/modifying behavior?
-│  └─ Use `/speckit.modify 014 "change description"`
+│  └─ Use `/speckit.workflows.modify 014 "change description"`
 └─ Improving code without changing behavior?
-   └─ Use `/speckit.refactor "improvement description"`
+   └─ Use `/speckit.workflows.refactor "improvement description"`
 
 Removing a feature?
-└─ Use `/speckit.deprecate 014 "deprecation reason"`
+└─ Use `/speckit.workflows.deprecate 014 "deprecation reason"`
 ```
 
 ### Example: Fix a Bug
 
 ```bash
 # Step 1: Create bug report
-/speckit.bugfix "profile form crashes when submitting without image upload"
+/speckit.workflows.bugfix "profile form crashes when submitting without image upload"
 # Creates: bug-report.md with initial analysis
 # Shows: Next steps to review and investigate
 
@@ -144,7 +132,7 @@ Removing a feature?
 
 ```bash
 # Step 1: Create modification spec with impact analysis
-/speckit.modify 014 "make profile fields optional instead of required"
+/speckit.workflows.modify 014 "make profile fields optional instead of required"
 # Creates: modification-spec.md + impact-analysis.md
 # Shows: Impact summary and next steps
 
@@ -171,11 +159,11 @@ Removing a feature?
 | Workflow | Command | Key Feature | Test Strategy |
 |----------|---------|-------------|---------------|
 | **Feature** | `/speckit.specify "..."` | Full spec + design | TDD (test before code) |
-| **Bugfix** | `/speckit.bugfix "..."` | Regression test | Test before fix |
-| **Modify** | `/speckit.modify 014 "..."` | Impact analysis | Update affected tests |
-| **Refactor** | `/speckit.refactor "..."` | Baseline metrics | Tests unchanged |
-| **Hotfix** | `/speckit.hotfix "..."` | Post-mortem | Test after (only exception) |
-| **Deprecate** | `/speckit.deprecate 014 "..."` | 3-phase sunset | Remove tests last |
+| **Bugfix** | `/speckit.workflows.bugfix "..."` | Regression test | Test before fix |
+| **Modify** | `/speckit.workflows.modify 014 "..."` | Impact analysis | Update affected tests |
+| **Refactor** | `/speckit.workflows.refactor "..."` | Baseline metrics | Tests unchanged |
+| **Hotfix** | `/speckit.workflows.hotfix "..."` | Post-mortem | Test after (only exception) |
+| **Deprecate** | `/speckit.workflows.deprecate 014 "..."` | 3-phase sunset | Remove tests last |
 
 ## Documentation
 

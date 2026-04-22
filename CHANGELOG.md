@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 All workflows now follow this checkpoint-based pattern:
 
-1. **Initial Analysis** - Run workflow command (e.g., `/speckit.bugfix`) to create analysis/documentation
+1. **Initial Analysis** - Run workflow command (e.g., `/speckit.workflows.bugfix`) to create analysis/documentation
 2. **User Review** - Review the analysis, make adjustments as needed
 3. **Planning** - Run `/speckit.plan` to create implementation plan
 4. **Plan Review** - Review and adjust the plan
@@ -27,27 +27,27 @@ All workflows now follow this checkpoint-based pattern:
 
 ### 🔄 Changed Workflows
 
-#### Bugfix Workflow (`/speckit.bugfix`)
+#### Bugfix Workflow (`/speckit.workflows.bugfix`)
 - **Before**: Auto-generated 21 tasks immediately after command
 - **After**: Creates `bug-report.md` → User reviews → `/speckit.plan` → User reviews → `/speckit.tasks` → User reviews → `/speckit.implement`
 - **Benefit**: Users can adjust the fix approach before implementation, preventing incorrect solutions
 
-#### Modify Workflow (`/speckit.modify`)
+#### Modify Workflow (`/speckit.workflows.modify`)
 - **Before**: Auto-generated 36 tasks with impact analysis
 - **After**: Creates `modification-spec.md` + `impact-analysis.md` → User reviews → `/speckit.plan` → User reviews → `/speckit.tasks` → User reviews → `/speckit.implement`
 - **Benefit**: Users can review impact analysis (~80% accurate) and catch missed dependencies before making breaking changes
 
-#### Refactor Workflow (`/speckit.refactor`)
+#### Refactor Workflow (`/speckit.workflows.refactor`)
 - **Before**: Auto-generated 36 tasks after metrics capture
 - **After**: Creates `refactor-spec.md` + `metrics-before.md` → User captures baseline → `/speckit.plan` → User reviews → `/speckit.tasks` → User reviews → `/speckit.implement`
 - **Benefit**: Users ensure baseline metrics are captured and plan is incremental before starting refactoring
 
-#### Hotfix Workflow (`/speckit.hotfix`)
+#### Hotfix Workflow (`/speckit.workflows.hotfix`)
 - **Before**: Auto-generated 28 tasks for emergency fix
 - **After**: Creates `hotfix.md` → Quick assessment → `/speckit.plan` (fast-track) → Quick review → `/speckit.tasks` → Quick sanity check → `/speckit.implement`
 - **Benefit**: Even in emergencies, a 2-minute review prevents making the outage worse
 
-#### Deprecate Workflow (`/speckit.deprecate`)
+#### Deprecate Workflow (`/speckit.workflows.deprecate`)
 - **Before**: Auto-generated 58 tasks across all phases
 - **After**: Creates `deprecation.md` + `dependencies.md` → Stakeholder review → `/speckit.plan` → Approval → `/speckit.tasks` → Review → `/speckit.implement`
 - **Benefit**: Multi-month deprecations require stakeholder alignment; checkpoints ensure proper planning
@@ -91,7 +91,7 @@ specs/bugfix-001/
 **After** (v2.0.0):
 ```
 specs/bugfix-001/
-├── bug-report.md    # Created by /speckit.bugfix
+├── bug-report.md    # Created by /speckit.workflows.bugfix
 ├── plan.md          # Created by /speckit.plan
 └── tasks.md         # Created by /speckit.tasks
 ```
