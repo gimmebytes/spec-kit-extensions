@@ -1,7 +1,7 @@
 schema_version: "1.0"
 
 extension:
-  id: "workflow-extensions"
+  id: "workflows"
   name: "Workflow Extensions"
   version: "1.0.0"
   description: "5 production-tested workflows extending spec-kit to cover bugfix, modify, refactor, hotfix, and deprecate development activities"

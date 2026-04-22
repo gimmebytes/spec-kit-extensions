@@ -76,49 +76,9 @@ See [EXAMPLES.md](EXAMPLES.md) for detailed real-world examples.
 
 ### Installation
 
-**Option 1: Install via spec-kit CLI (Recommended)**
 ```bash
-specify ext install https://github.com/gimmebytes/spec-kit-extensions/releases/latest/download/workflow-extensions.zip
+specify extension add workflows --from https://github.com/gimmebytes/spec-kit-extensions/releases/latest/download/workflow-extensions.zip
 ```
-
-> Check the [Releases page](https://github.com/gimmebytes/spec-kit-extensions/releases) for the latest version and download URL.
-
-**Option 2: Use as Template (New Projects)**
-```bash
-# Create new project from this template
-git clone https://github.com/[your-username]/spec-kit-extensions.git my-project
-cd my-project
-rm -rf .git
-git init
-# Rearrange files per INSTALLATION.md
-```
-
-**Option 3: Copy into Existing Project**
-```bash
-# Clone this repo
-git clone https://github.com/[your-username]/spec-kit-extensions.git /tmp/extensions
-
-# Copy files into your project
-cd your-project
-cp -r /tmp/extensions/extensions/* .specify/extensions/
-cp -r /tmp/extensions/scripts/* .specify/scripts/bash/
-cp -r /tmp/extensions/commands/* .claude/commands/
-
-# Merge constitution sections
-cat /tmp/extensions/docs/constitution-template.md >> .specify/memory/constitution.md
-
-# Clean up
-rm -rf /tmp/extensions
-```
-
-**Option 4: Git Submodule (Team Projects)**
-```bash
-cd your-project
-git submodule add https://github.com/[your-username]/spec-kit-extensions.git .specify/extensions-source
-# Create symlinks per INSTALLATION.md
-```
-
-See [INSTALLATION.md](INSTALLATION.md) for detailed instructions.
 
 ### Verify Installation
 
